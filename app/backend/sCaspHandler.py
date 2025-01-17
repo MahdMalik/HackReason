@@ -12,6 +12,9 @@ def process_data():
     queryPhrase = request.get_json()
 
     file_path = r"C:/Users/mahd/Documents/hackreason2024autism/testLogic.pl"
+    import os
+    print(os.environ.get('PATH'))
+
 
     prolog = Prolog()
     prolog.consult(file_path)  # Load the Prolog file
