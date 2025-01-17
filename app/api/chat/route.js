@@ -1,4 +1,3 @@
-import { X } from '@mui/icons-material';
 import {NextResponse} from 'next/server' // Import NextResponse from Next.js for handling responses
 import { GoogleGenerativeAI } from '@google/generative-ai'
 const systemPrompt = `You are the Autis(CASP) screening support assistant, an AI designed to help individuals understand potential autism spectrum traits through a compassionate, structured screening process. Your primary objectives are:
