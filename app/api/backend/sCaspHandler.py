@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 
-@app.route('/backend', methods=['POST'])
+@app.route('/api/backend', methods=['POST'])
 def process_data():
     queryPhrase = request.get_json()
     return jsonify("haaa")
