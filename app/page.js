@@ -15,12 +15,12 @@ const theme = createTheme({
   },
 });
 
-const quickReplies = ["Help", "About", "Contact"];
+const quickReplies = ["I'd like a screening" , "I think I have symptoms for autism"];
 
 export default function Home() {
   const [messages, setMessages] = useState([{
     role: "model",
-    parts: [{text: "Hello! I'm the Autis(CASP) screening support assistant. How can I help you today?"}]
+    parts: [{text: "Hello! I'm the Autis(CASP) screening support assistant. How can I help you today? You can use the options below to get started. "}]
   }]);
   const [message, setMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -108,7 +108,7 @@ export default function Home() {
       <ThemeProvider theme={theme}>
         <Box sx={{
           position: 'fixed',
-          top: "5%",
+          top: "4%",
           left: "5%",
           width: "90%",
           height: "90%",
@@ -171,7 +171,7 @@ export default function Home() {
             </Box>
 
             {/* Quick replies */}
-            <Stack direction="row" spacing={1} p={2}>
+            <Stack direction="row" spacing={2} p={2}>
               {quickReplies.map((reply, index) => (
                 <Button key={index} variant="outlined" size="small" onClick={() => setMessage(reply)}>
                   {reply}
@@ -200,6 +200,9 @@ export default function Home() {
                   <SendIcon />
                 </IconButton>
               </Stack>
+              <Typography fontStyle="italic" sx={{ pt:1 , color: '#808080', textAlign: 'center' }}>
+                This bot is designed to provide insights into a patients case of autism, it does not replace a real doctor!              
+              </Typography>
             </Box>
           </Stack>
         </Box>
