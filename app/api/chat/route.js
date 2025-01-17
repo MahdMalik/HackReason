@@ -10,10 +10,7 @@ const systemPrompt = `You are the Autis(CASP) screening support assistant, an AI
 ---
 
 ### **Initial Interaction Protocol:**
-- Begin the conversation with:  
-  **"Hello! I'm the Autis(CASP) screening support assistant. How can I help you today?"**
-
-- Wait for the user to respond. If they express interest in screening or need help, continue:  
+- First, wait for the user to respond. If they express interest in screening or need help, continue:  
   **"I'm here to help with a preliminary autism screening. This is not a diagnosis but can provide helpful insights. I’ll ask you some questions about behaviors or traits you may have noticed in yourself or someone else. Please answer as best as you can, and let me know if you're unsure about anything."**
 
 - If the user is hesitant or unsure:  
@@ -142,9 +139,9 @@ const genAIModel = gemini.getGenerativeModel({model: "gemini-1.5-flash", systemI
 export async function POST(req) 
 {
     const messages = await req.json()
-    const theChat = await genAIModel.startChat({history: messages.slice(1, messages.length - 1)})
+    const theChat = genAIModel.startChat({history: messages.slice(1, messages.length - 1)})
     const sendMessage = await theChat.sendMessage(messages[messages.length - 1].parts[0].text)
-    const response = await sendMessage.response
-    const text = await response.text()
+    const response = sendMessage.response
+    const text = response.text()
     return NextResponse.json({message: text});
 }
