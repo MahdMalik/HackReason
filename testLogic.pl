@@ -50,4 +50,9 @@ at_least_two_of_four(X) :-
     hyper_hyporeactivity(X).
 at_least_two_of_four(X) :-
     highly_perseverative_interests(X),
-    hyper_hyporeactivity(X).?- autism([social_emotional_deficits, non_verbal_comm_deficits, rel_maintenance_deficits, motor_stereotypes, hyper_hyporeactivity]).
+    hyper_hyporeactivity(X).
+?- autism([]).
+?- autism([]).
+?- autism([]).
+?- autism([]).
+?- autism([social_emotional_deficits, non_verbal_comm_deficits, rel_maintenance_deficits, motor_stereotypes, rigid_behaviour_patterns, highly_perseverative_interests, hyper_hyporeactivity]).

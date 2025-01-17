@@ -24,6 +24,7 @@ export default function Home() {
   }]);
   const [message, setMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [queryResults, setQueryResults] = useState("")
 
   const sendMessage = async() => {
     if (!message.trim()) return;
@@ -36,16 +37,34 @@ export default function Home() {
     setIsTyping(true);
 
     try {
+      let additionalLine = ""
+      if(queryResults.length != 0)
+      {
+        if(queryResults.indexOf("no models") != -1)
+        {
+          additionalLine = "{SCREENING RESULTS: NO AUTISM}"
+        }
+        else
+        {
+          additionalLine = "{SCREENING RESULTS: POSSIBLE AUTISM}"
+        }
+        setQueryResults("")
+      }
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {'Content-Type': "application/json"},
-        body: JSON.stringify([...messages, {role: "user", parts: [{text: message}]}])
+        body: JSON.stringify([...messages, {role: "user", parts: [{text: additionalLine + "\n" + message}]}])
       });
-      const newMessage = await response.json();
+      const data = await response.json();
       setMessages((prevMessages) => [
         ...prevMessages,
-        {role: "model", parts: [{text: newMessage.message}]}
+        {role: "model", parts: [{text: data.message}]}
       ]);
+      if(data.autismStatus.indexOf("true") != -1)
+      {
+        console.log("john query: " + data.autismStatus.substring(data.autismStatus.indexOf("autism"), data.autismStatus.length - 1))
+        sendQuery(data.autismStatus.substring(data.autismStatus.indexOf("autism"), data.autismStatus.length - 1))
+      }
     } catch (error) {
       console.error("Error sending message:", error);
     } finally {
@@ -53,16 +72,17 @@ export default function Home() {
     }
   };
 
-  async function sendQuery() {
-    let query = "autism([social_emotional_deficits, non_verbal_comm_deficits, rel_maintenance_deficits, motor_stereotypes, hyper_hyporeactivity])."
+  async function sendQuery(query) {
     try
     {
-      const returnedValues = await fetch("/api/backend/sCaspHandler", {
+      const returnedValues = await fetch('http://localhost:5000/api/backend', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(query)
       })
-      console.log(await returnedValues.json())
+      const returnedQuery = await returnedValues.json()
+      setQueryResults(returnedQuery)
+      console.log(returnedQuery)
     }
     catch(e)
     {
@@ -171,13 +191,11 @@ export default function Home() {
                   onKeyPress={(e) => {
                     if (e.key === 'Enter' && message.trim()) {
                       sendMessage();
-                      sendQuery()
                     }
                   }}
                 />
                 <IconButton color="primary" onClick={() => {
                   sendMessage(); 
-                  sendQuery();
                   }} disabled={!message.trim()}>
                   <SendIcon />
                 </IconButton>
