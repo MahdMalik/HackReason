@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from pyswip import Prolog
 import os
+import subprocess
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -10,17 +11,21 @@ CORS(app)  # Enable CORS for all routes
 @app.route('/backend', methods=['POST'])
 def process_data():
     queryPhrase = request.get_json()
+    file_path = "C:/Users/mahd/Documents/hackreason2024autism/testLogic.pl"
+    # Open the file in append mode ('a')
+    with open(file_path, 'a') as file:
+        file.write("\n?- " + queryPhrase)
 
-    file_path = r"C:/Users/mahd/Documents/hackreason2024autism/testLogic.pl"
-    import os
-    print(os.environ.get('PATH'))
+    try:
+        call = subprocess.Popen(
+            ["wsl", "/home/mahd/.ciao/build/bin/scasp",  "testLogic.pl"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, 
+            text=True, universal_newlines=True
+            )
+        output, err = call.communicate(timeout=10800)
+        return jsonify(output)
+    except Exception as e:
+        return jsonify("error is: " + str(e))
 
-
-    prolog = Prolog()
-    prolog.consult(file_path)  # Load the Prolog file
-    # results = list(prolog.query(queryPhrase))
-    return jsonify("help in gaia")
     
-
 if __name__ == '__main__':
     app.run(debug=True)
