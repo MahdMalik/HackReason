@@ -143,7 +143,7 @@ export default function Home() {
                     mb={2}
                   >
                     {message.role === "model" && (
-                      <Avatar sx={{ bgcolor: 'primary.main', mr: 1 }}>B</Avatar>
+                      <Avatar src="/logo.png"  alt="Logo" sx={{ bgcolor: 'primary.main', mr: 1 }}>B</Avatar>
                     )}
                     <Box 
                       bgcolor={message.role === 'model' ? 'primary.light' : 'secondary.light'} 
