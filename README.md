@@ -1,39 +1,10 @@
+To run this repository, currently the website doesn't have all the features. To run, install next.js, pull the github repo to a
+repository, and run npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @google/generative-ai and other dependencies.
+
+Now, run the python file sCaspHandler.py (one way to do this is to navigate to the file, and click the run button at the top right in vs code).
+
+Next, run npm run dev in the terminal, and go to localhost.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
-
-First, run the development server:
-
-install:
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @google/generative-ai
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Note: if using windows, one will probably need to install WSL, and then install ciao and s(CASP) into WSL, because the python code relies on running s(CASP) commands from the terminal.
