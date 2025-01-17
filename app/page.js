@@ -57,7 +57,7 @@ export default function Home() {
     let query = "autism([social_emotional_deficits, non_verbal_comm_deficits, rel_maintenance_deficits, motor_stereotypes, hyper_hyporeactivity])."
     try
     {
-      const returnedValues = await fetch("/api/backend", {
+      const returnedValues = await fetch("/api/backend/sCaspHandler", {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(query)
