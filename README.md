@@ -4,6 +4,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+install:
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @google/generative-ai
+
 ```bash
 npm run dev
 # or
