@@ -56,7 +56,7 @@ export default function Home() {
     let query = "autism([social_emotional_deficits, non_verbal_comm_deficits, rel_maintenance_deficits, motor_stereotypes, hyper_hyporeactivity])."
     try
     {
-      const returnedValues = await fetch('http://127.0.0.1:5000/backend', {
+      const returnedValues = await fetch('http://localhost:5000/backend', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(query)
