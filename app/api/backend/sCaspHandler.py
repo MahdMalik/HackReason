@@ -1,5 +1,6 @@
 import subprocess
 from flask import jsonify
+import json
 
 # The function Vercel will run when a request is made to /api/backend
 def handler(request):
@@ -7,7 +8,10 @@ def handler(request):
     if request.method == 'POST':
         try:
             query_phrase = request.get_json()
-            return jsonify(query_phrase)
+            return {
+                "statusCode": 200,
+                "body": json.dumps({"output": "hi"})
+            }
             # You can keep your logic the same for file operations or subprocess
             file_path = "/path/to/testLogic.pl"  # Use a relative path or environment variable
             
