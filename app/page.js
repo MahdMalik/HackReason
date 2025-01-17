@@ -46,7 +46,12 @@ export default function Home() {
         }
         else
         {
-          additionalLine = "{SCREENING RESULTS: POSSIBLE AUTISM}"
+          
+          const searchForPhrase = "Y = "
+          const pointOfY = queryResults.indexOf(searchForPhrase)
+          const severityLevel = parseInt(queryResults.substring(pointOfY + searchForPhrase.length, pointOfY + searchForPhrase.length + 1)) - 4
+          console.log(queryResults.substring(pointOfY + searchForPhrase.length, pointOfY + searchForPhrase.length + 1))
+          additionalLine = "{SCREENING RESULTS: POSSIBLE AUTISM. SEVERITY LEVEL: " + severityLevel + "}"
         }
         setQueryResults("")
       }
@@ -62,8 +67,8 @@ export default function Home() {
       ]);
       if(data.autismStatus.indexOf("true") != -1)
       {
-        console.log("john query: " + data.autismStatus.substring(data.autismStatus.indexOf("autism"), data.autismStatus.length - 1))
-        sendQuery(data.autismStatus.substring(data.autismStatus.indexOf("autism"), data.autismStatus.length - 1))
+        console.log("john query: " + data.autismStatus.substring(data.autismStatus.indexOf("has_autism"), data.autismStatus.length - 1))
+        sendQuery(data.autismStatus.substring(data.autismStatus.indexOf("has_autism"), data.autismStatus.length - 1))
       }
     } catch (error) {
       console.error("Error sending message:", error);
