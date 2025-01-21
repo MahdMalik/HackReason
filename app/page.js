@@ -52,7 +52,7 @@ export default function Home() {
           const severityLevel = parseInt(queryResults.substring(pointOfY + searchForPhrase.length, pointOfY + searchForPhrase.length + 1)) - 4
           console.log(queryResults.substring(pointOfY + searchForPhrase.length, pointOfY + searchForPhrase.length + 1))
           additionalLine = "{SCREENING RESULTS: POSSIBLE AUTISM. SEVERITY LEVEL: " + severityLevel + "}"
-        }
+        } 
         setQueryResults("")
       }
       const response = await fetch("/api/chat", {
