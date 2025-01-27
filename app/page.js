@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { 
   Box, Stack, TextField, Button, Typography, Avatar, 
   createTheme, ThemeProvider, Fade, IconButton, CircularProgress 
@@ -25,6 +25,23 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [queryResults, setQueryResults] = useState("")
+
+  // Ref for the chat box
+  const chatBoxRef = useRef(null);
+
+  // Auto-scroll logic
+  const scrollToBottom = () => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop =
+        chatBoxRef.current.scrollHeight;
+    }
+  };
+
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
 
   const sendMessage = async() => {
     if (!message.trim()) return;
@@ -139,7 +156,9 @@ export default function Home() {
               flexGrow: 1,
               overflow: 'auto',
               p: 2,
-            }}>
+            }}
+            ref={chatBoxRef} // Attach ref to chat box
+            >
               {messages.map((message, index) => (
                 <Fade key={index} in={true} timeout={500}>
                   <Box 
