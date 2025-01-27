@@ -25,6 +25,7 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [queryResults, setQueryResults] = useState("")
+  const [showCoverPage, setShowCoverPage] = useState(true);
 
   // Ref for the chat box
   const chatBoxRef = useRef(null);
@@ -113,6 +114,35 @@ export default function Home() {
     
   }
   return (
+    <Box sx={{ position: 'relative', width: '100vw', height: '100vh' }}>
+    {showCoverPage && (
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#000',
+          zIndex: 9999,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          cursor: 'pointer',
+        }}
+        onClick={() => setShowCoverPage(false)}
+        >
+          <Image
+            src="/coverLogo.png"
+            alt="Enter Site"
+            width={750}
+            height={750}
+            style={{ objectFit: 'contain' }}
+          />
+      </Box>
+    )}
+    {/* Rest of your existing JSX */}
+  
     <Box sx={{ position: 'relative', width: '100vw', height: '100vh' }}>
     {/* Background Image */}
     <Image 
@@ -232,5 +262,6 @@ export default function Home() {
         </Box>
       </ThemeProvider>
     </Box>
+   </Box> 
   );
 }
