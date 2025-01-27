@@ -2,7 +2,8 @@ To run this repository, currently the website doesn't have all the features.
 To run, install next.js, pull the github repo to a repository, 
 and run "npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @google/generative-ai" and other dependencies.
 
-Now, run "pip install flask" and "pip install flask-cors" and then the python file sCaspHandler.py (one way to do this is to navigate to the file, and click the run button at the top right in vs code).
+Now, run "pip install flask" and "pip install flask-cors" and then the python file sCaspHandler.py 
+(one way to do this is to navigate to the file, and click the run button at the top right in vs code).
 
 Next, run "npm run dev" in the terminal, and open localhost.[http://localhost:3000/]
 
