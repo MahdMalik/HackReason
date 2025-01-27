@@ -135,8 +135,8 @@ export default function Home() {
           <Image
             src="/coverLogo.png"
             alt="Enter Site"
-            width={750}
-            height={750}
+            width={700}
+            height={700}
             style={{ objectFit: 'contain' }}
           />
       </Box>
