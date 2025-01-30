@@ -115,6 +115,7 @@ export default function Home() {
   }
   return (
     <Box sx={{ position: 'relative', width: '100vw', height: '100vh' }}>
+      {/* coverpage */}
     {showCoverPage && (
       <Box
         sx={{
@@ -141,7 +142,7 @@ export default function Home() {
           />
       </Box>
     )}
-    {/* Rest of your existing JSX */}
+    {/* Rest of JSX */}
   
       <Box sx={{ position: 'relative', width: '100vw', height: '100vh' }}>
       {/* Background Image */}
