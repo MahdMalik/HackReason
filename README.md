@@ -1,4 +1,4 @@
-To run this repository, currently the website doesn't have all the features. 
+To run this repository:  
 To run, install next.js, pull the github repo to a repository, 
 and run "npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @google/generative-ai" and other dependencies.
 
@@ -11,3 +11,4 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 Note: If using windows, it may be needed to install WSL, and then install ciao and s(CASP) into WSL, because the python code relies on running s(CASP) commands from the terminal.
 
+Note: Currently, the website doesn't have all the features
