@@ -80,7 +80,7 @@ export default function Home() {
   async function sendQuery(query) {
     try
     {
-      const returnedValues = await fetch('http://localhost:5000/api/backend', {
+      const returnedValues = await fetch('https://0gtpj1hhqk.execute-api.us-east-2.amazonaws.com/IDontKnowWhatStagesAre/callLinuxServer', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(query)
