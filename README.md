@@ -1,4 +1,6 @@
-Autis(CASP) is a friendly, easy-to-use AI chatbot that gives people 24/7 access to a autism screening tool to best estimate their case of autism and where they lie on the spectrum based on 7 criteria as outlines by "The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition".
+Autis(CASP) is a friendly, easy-to-use AI chatbot that gives people 24/7 access to a autism screening tool 
+to best estimate their case of autism and where they lie on the spectrum based on 7 criteria 
+as outlines by "The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition".
 
 To run this repository:  
 To run, install next.js, pull the github repo to a repository, 
