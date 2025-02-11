@@ -15,4 +15,4 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 Note: If using windows, it may be needed to install WSL, and then install ciao and s(CASP) into WSL, because the python code relies on running s(CASP) commands from the terminal.
 
-Update Note: Currently, the website has all the features, but it takes time (approx. 10-30 sec)
+Update Note: Currently, the website has all the features, but it takes time (approx. 5-10 sec)
