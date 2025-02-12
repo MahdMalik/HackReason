@@ -17,4 +17,5 @@ Note: If using windows, it may be needed to install WSL(Windows Subsystem for Li
 
 Update Note: Currently, the website has all the features, but it takes time (approx. 5-10 sec)
 
-
+Check out our devpost here:
+https://devpost.com/software/autis-casp 
