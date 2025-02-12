@@ -13,6 +13,8 @@ Next, run "npm run dev" in the terminal, and open localhost.[http://localhost:30
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Note: If using windows, it may be needed to install WSL, and then install ciao and s(CASP) into WSL, because the python code relies on running s(CASP) commands from the terminal.
+Note: If using windows, it may be needed to install WSL(Windows Subsystem for Linux), and then install ciao and s(CASP) into WSL, because the python code relies on running s(CASP) commands from the terminal.
 
 Update Note: Currently, the website has all the features, but it takes time (approx. 5-10 sec)
+
+
