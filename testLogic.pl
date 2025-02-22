@@ -1,3 +1,5 @@
+% This is the prolog program for which Autis(CASP) is based. 
+
 % BEGIN queries.
 
 % If the list is empty, the element can't be a member
@@ -7,21 +9,21 @@ member(Element, [Element | T]).
 % Otherwise, skip the head and keep searching.
 member(Element, [H | T]) :- member(Element, T).
 
-% Criterion for Autism:
-
+% Criterion for Autism: 
+     
 % Persistent deficits in social communication 
 % and social interaction. 3/3 must be met.
 social_emotional_deficits(X, Z1) :- member(social_emotional_deficits, X), Z1 is 1.
 non_verbal_comm_deficits(X, Z2) :- member(non_verbal_comm_deficits, X), Z2 is 1. 
 rel_maintenance_deficits(X, Z3) :- member(rel_maintenance_deficits, X), Z3 is 1. 
-
+      
 % Restricted, repetitive patterns of behavior, 
 % interests, or activities. 2/4 must be met (minimum). 
 motor_stereotypes(X) :- member(motor_stereotypes, X). 
 rigid_behaviour_patterns(X) :- member(rigid_behaviour_patterns, X). 
 highly_perseverative_interests(X) :- member(highly_perseverative_interests, X). 
 hyper_hyporeactivity(X) :- member(hyper_hyporeactivity, X). 
-
+    
 % Per the DSM-V, autism is defined as:
 has_autism(X, Y) :- 
     social_emotional_deficits(X, Z1),
